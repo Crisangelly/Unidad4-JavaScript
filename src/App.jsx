@@ -10,7 +10,7 @@ function App() {
   const [usuario, setUsuario] = useState([])
 
   const fETCH_DATA = async () => {
-    const RESPONSE = await API_GITHUB.get(`/${buscar}`) ; //Para ver otro usuario se cambia la url
+    const RESPONSE = await API_GITHUB.get(`/users/${buscar}`) ; //Para ver otro usuario se cambia la url
     return setUsuario(RESPONSE.data);
   }
 
