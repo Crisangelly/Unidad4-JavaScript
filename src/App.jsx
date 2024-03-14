@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 
 import API_GITHUB from './conexion_api.js'
 
 import Coincidencia from './components/coincidencia.jsx';
+import './styles/coincidencia.css'
 
 function App() {
   const [buscar, setBuscar] = useState("");
-  const [usuarios, setUsuarios] = useState([])
+  const [usuarios, setUsuarios] = useState([]);
 
   //Buscar usuarios
   const fETCH_USERS = async () => {
@@ -31,22 +32,32 @@ function App() {
     return setUsuarios(usuarios_3);
   }
 
+
+  const [tema, setTema] = useState(true);
+  const cambiarTema = async () => {
+    setTema(!tema)
+  }
+
   return (
     <>
+      <button onClick={cambiarTema}>{tema ? 'Oscuro' : 'Claro'}</button>
+      <hr></hr>
       <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
       <button onClick={fETCH_USERS}>Buscar</button>
-      {
-        usuarios.map(usuario => (
-          <Coincidencia
-            key={usuario.id}
-            avatar_url={usuario.avatar_url}
-            name={usuario.name}
-            login={usuario.login}
-            company={usuario.company}
-            public_repos={usuario.public_repos}
-          />
-        ))
-      } 
+      <div className='usuariosContainer'>
+        {
+          usuarios.map(usuario => (
+            <Coincidencia
+              key={usuario.id}
+              avatar_url={usuario.avatar_url}
+              name={usuario.name}
+              login={usuario.login}
+              company={usuario.company}
+              public_repos={usuario.public_repos}
+            />
+          ))
+        }
+      </div>
 
     </>
   )

@@ -2,8 +2,8 @@ import React from "react";
 
 function Coincidencia ({ avatar_url, name, login, company, public_repos }) {
   return(
-    <div>
-      <img src={avatar_url}></img>
+    <div className="usuarioCard">
+      <img className="imagenCard" src={avatar_url}></img>
       <ul>
         <li>Nombre: {name}</li>
         <li>Nombre de usuario: {login}</li>

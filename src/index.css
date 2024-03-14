@@ -1,4 +1,9 @@
 :root {
+  --background: #EFFAF9;
+  --text-primary: #000;
+}
+
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +17,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/*[data-theme='dark'] {
+  --background: #434747;
+  --text-primary: #fff;
+}*/
 
 a {
   font-weight: 500;
@@ -28,6 +38,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--background, #EFFAF9);
 }
 
 h1 {
