@@ -31,16 +31,11 @@ function Buscador() {
   }
 
 
-  const [tema, setTema] = useState(true);
-  const cambiarTema = async () => {
-    setTema(!tema)
-  }
+  
 
   return (
     <>
       <main>
-        <button onClick={cambiarTema}>{tema ? "Oscuro" : "Claro"}</button>
-        <hr></hr>
         <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
         <button onClick={fETCH_USERS}>Buscar</button>
         <div className='usuariosContainer'>

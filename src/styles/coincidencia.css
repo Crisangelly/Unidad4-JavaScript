@@ -10,8 +10,10 @@
 }
 
 .usuarioCard {
+  color-scheme: only light;
+  color: black;
   background: var(--card-color, #D9D9D9);
-  /*height: 322px;*/
+  min-height: 230px;
   display: flex;
   min-width: 289px;
   max-width: 385px;
