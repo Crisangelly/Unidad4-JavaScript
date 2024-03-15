@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.a-footer{
+  text-decoration: none;
+}
+
+.a-footer, .p-footer{
+  color: #000
+}
+
+.a-footer:hover{
+  color:#0E566A
+}
