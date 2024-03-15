@@ -15,7 +15,9 @@
 }
 
 .a-footer, .p-footer{
-  color: #000
+  color: #000;
+  font-family: Poppins;
+  font-size: 12px;
 }
 
 .a-footer:hover{
