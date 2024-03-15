@@ -5,6 +5,7 @@ import API_GITHUB from './conexion_api.js'
 
 import Coincidencia from './components/coincidencia.jsx';
 import './styles/coincidencia.css'
+import Header from './components/Header.jsx';
 
 function App() {
   const [buscar, setBuscar] = useState("");
@@ -40,6 +41,9 @@ function App() {
 
   return (
     <>
+      <div>
+      <Header/>
+      </div>
       <button onClick={cambiarTema}>{tema ? 'Oscuro' : 'Claro'}</button>
       <hr></hr>
       <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
