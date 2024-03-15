@@ -9,11 +9,11 @@
 }
 
 .a-footer, .p-footer{
-  color: #000;
-  font-family: Poppins;
-  font-size: 12px;
+  color: var(--text-primary, black);
+  font-family: var(--font-primary, Poppins);
+  font-size: var(--size-foot, 12px);
 }
 
 .a-footer:hover{
-  color: #52C01E;
+  color: var(--primary-color, #52C01E);
 }

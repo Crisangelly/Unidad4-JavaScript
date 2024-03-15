@@ -10,7 +10,7 @@
 }
 
 .usuarioCard {
-  background: var(--Card, #D9D9D9);
+  background: var(--card-color, #D9D9D9);
   /*height: 322px;*/
   display: flex;
   min-width: 289px;

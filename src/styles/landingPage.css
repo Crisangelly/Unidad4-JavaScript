@@ -7,14 +7,14 @@
 
 .link-landingPage{
   text-decoration: none;
-  background-color: #52C01E;
+  background-color: var(--primary-color, #52C01E);
   padding: 31px 36px;
   border-radius: 20px;
-  border: 8px solid #FFF;
+  border: 8px solid var(--border-color, #fff);
   font-family: Poppins;
   font-size: 40px;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-secundary, #fff);
   text-align: center;
 }
 
@@ -29,13 +29,13 @@
 }
 
 .info-h1{
-  font-family: Montserrat;
-  font-size: 48px;
+  font-family: var(--font-titles, Montserrat);;
+  font-size: var(--size-titles, 48px);
 }
 
 .info-p{
-  font-family: Poppins;
-  font-size: 40px;
+  font-family: var(--font-primary, Poppins);
+  font-size: var(--size-body, 40px);
   text-align: center;
   margin: 23px;
 }

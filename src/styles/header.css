@@ -1,6 +1,6 @@
 .header {
-  background-color: #0E566A;
-  font-family: Montserrat;
+  background-color: var(--header-color, #0E566A);
+  font-family: var(--font-titles, Montserrat);
   display: flex;
   align-items: center;
   width: 100%;
@@ -8,7 +8,7 @@
 }
 
 .nav {
-  background-color: #0E566A;
+  background-color: var(--header-color, #0E566A);
   display: flex;
   width: 100%;
 }
@@ -18,7 +18,7 @@
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-secundary, #fff);
 }
 
 .logo-header {
@@ -27,7 +27,7 @@
 }
 
 .titulo-header {
-  color: #fff;
+  color: var(--text-secundary, #fff);
   font-size: 1em;
   margin-right: 2em;
 }

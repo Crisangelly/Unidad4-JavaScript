@@ -1,20 +1,36 @@
 :root {
-  --background: #EFFAF9;
-  --text-primary: #000;
+  --background-color: #EFFAF9;
+  --header-color: #0E566A;
+  --primary-color: #52C01E;
+  --border-color: #fff;
+  --card-color: #D9D9D9;
 }
 
-:root {
+/*:root {
   --background2: #434747;
   --text-primary2: #fff;
+}*/
+
+:root {
+  --font-primary: Poppins;
+  --text-primary: #000;
+  --size-body: 40px;
+  --size-foot: 12px;
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-titles: Montserrat;
+  --text-secundary: #fff;
+  --size-titles: 48px;
+}
+
+:root {
+  font-family: var(--font-primary, Poppins), Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  /*color: var(--text-primary, black);*/
   background-color: #242424;
 
   font-synthesis: none;
@@ -34,15 +50,17 @@ body {
   place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
-  background: var(--background, #EFFAF9);
+  background: var(--background-color, #EFFAF9);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: var(--background2);
+    /*background: var(--background2);*/
+    --background-color: #434747;
+    --text-primary: #fff;
   }
 
-  .a-footer, .p-footer{
-    color: var(--text-primary2);
+  #root {
+    color: var(--text-primary, #fff)
   }
 }
