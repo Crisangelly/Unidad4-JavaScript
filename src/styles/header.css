@@ -1,12 +1,10 @@
 .header {
     background-color: #0E566A;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    font-family: Montserrat;
     width: 100%;
     height: 77px;
-
-
 }
 
 .logo-header {

@@ -3,7 +3,7 @@ import './styles/App.css'
 
 import API_GITHUB from './conexion_api.js'
 
-import Coincidencia from './components/coincidencia.jsx';
+import Coincidencia from './components/Coincidencia.jsx';
 import './styles/coincidencia.css'
 
 function App() {
