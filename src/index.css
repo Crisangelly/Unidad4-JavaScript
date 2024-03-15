@@ -4,6 +4,11 @@
 }
 
 :root {
+  --background2: #434747;
+  --text-primary2: #fff;
+}
+
+:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -31,4 +36,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: var(--background, #EFFAF9);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--background2);
+  }
+
+  .a-footer, .p-footer{
+    color: var(--text-primary2);
+  }
 }
