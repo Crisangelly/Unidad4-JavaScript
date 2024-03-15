@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/coincidencia.css"
 
 function Coincidencia ({ avatar_url, name, login, company, public_repos }) {
   return(
