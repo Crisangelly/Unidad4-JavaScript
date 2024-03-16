@@ -3,10 +3,12 @@ import { useState } from "react"
 import API_GITHUB from "../api/conexion_api.js"
 
 import Coincidencia from "../../components/Coincidencia.jsx"
+import Loading from "../../components/Loading.jsx";
 
 function Buscador() {
   const [buscar, setBuscar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
+  const [carga, setCarga] = useState(false) 
 
   //Buscar usuarios
   const fETCH_USERS = async () => {
@@ -18,26 +20,33 @@ function Buscador() {
       }
     });
     console.debug(RESPONSE.data);
-    //console.debug(RESPONSE.data.items)
     let usuarioV = '';
     let usuarios_3 = [];
     for (const user of RESPONSE.data.items) {
-      console.log(user) //mostrar usuarios
       usuarioV = user.login
-      const RESPONSE2 = await API_GITHUB.get(`/users/${usuarioV}`);//Mostrar el último usuario (ARREGLAR para mostrar los tres)
+      const RESPONSE2 = await API_GITHUB.get(`/users/${usuarioV}`);//Mostrar el último usuario 
       usuarios_3.push(RESPONSE2.data)
     }
     return setUsuarios(usuarios_3);
   }
 
-
+  /* Loading */
+  const empezarCarga= () =>{
+    setCarga(true);
+    setUsuarios([])
+    setTimeout(() => {
+      setCarga(false);
+      fETCH_USERS();
+    }, 1000);
+  }  
   
 
   return (
     <>
       <main>
         <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
-        <button onClick={fETCH_USERS}>Buscar</button>
+        <button onClick={() => empezarCarga()}>Buscar</button>
+        {carga && <Loading />} 
         <div className='usuariosContainer'>
           {
             usuarios.map(usuario => (
@@ -51,7 +60,7 @@ function Buscador() {
               />
             ))
           }
-        </div>
+        </div>  
       </main>
     </>
   )
