@@ -31,11 +31,12 @@ function Buscador() {
   }
 
 
-  
+
 
   return (
     <>
-      <main>
+      <div>
+        <h1>Ingresa el nombre de usuario</h1>
         <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
         <button onClick={fETCH_USERS}>Buscar</button>
         <div className='usuariosContainer'>
@@ -52,7 +53,7 @@ function Buscador() {
             ))
           }
         </div>
-      </main>
+      </div>
     </>
   )
 }
