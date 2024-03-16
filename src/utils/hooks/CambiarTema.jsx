@@ -18,15 +18,6 @@ function CambiarTema() {
         }
     }, [sistemaOscuro])
     
-    const sistemaClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-    useEffect(() => {
-        if (sistemaClaro) {
-            setTema('light');
-        } else {
-            setTema('dark');
-        }
-    }, [sistemaClaro])
-    
     function verTOS() {
         const temaUser = window.matchMedia('(prefers-color-scheme: dark)');
         //console.log(temaUser)
@@ -37,7 +28,6 @@ function CambiarTema() {
             return true;
         }
     }
-    */
 
     setInterval(() => {
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -46,6 +36,17 @@ function CambiarTema() {
             setTema('light');
         }
     }, 2000)
+    */
+
+    const sistemaClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
+    useEffect(() => {
+        if (sistemaClaro) {
+            setTema('light');
+        } else {
+            setTema('dark');
+        }
+    }, [sistemaClaro])
+    
 
     /*const cambiarTema = async () => {
         setTema(!tema);
