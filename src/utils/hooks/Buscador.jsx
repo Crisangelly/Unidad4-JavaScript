@@ -19,6 +19,8 @@ function Buscador() {
         q: buscar
       }
     });
+    setCarga(true)
+    setUsuarios([])
     console.debug(RESPONSE.data);
     let usuarioV = '';
     let usuarios_3 = [];
@@ -27,26 +29,16 @@ function Buscador() {
       const RESPONSE2 = await API_GITHUB.get(`/users/${usuarioV}`);//Mostrar el último usuario 
       usuarios_3.push(RESPONSE2.data)
     }
+    setCarga(false)
     return setUsuarios(usuarios_3);
   }
-
-  /* Loading */
-  const empezarCarga= () =>{
-    setCarga(true);
-    setUsuarios([])
-    setTimeout(() => {
-      setCarga(false);
-      fETCH_USERS();
-    }, 1000);
-  }  
-
 
   return (
     <>
       <div>
         <h1>Ingresa el nombre de usuario</h1>
         <input type="text" placeholder="Buscar Users" onChange={(e) => setBuscar(e.target.value)}></input>
-        <button onClick={() => empezarCarga()}>Buscar</button>
+        <button onClick={fETCH_USERS}>Buscar</button>
         {carga && <Loading />} 
         <div className='usuariosContainer'>
           {

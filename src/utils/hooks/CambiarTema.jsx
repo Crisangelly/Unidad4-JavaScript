@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 
 function CambiarTema() {
-    const [tema, setTema] = useState("light");
+    const [tema, setTema] = useState("");
+    console.log(tema)
     function suicheChange(event) {
         setTema(event.target.checked ? "dark" : "light");
         //console.log(event.target.checked);
@@ -43,6 +44,8 @@ function CambiarTema() {
         if (sistemaClaro) {
             setTema('light');
         } else {
+            let check = document.getElementById("checkTheme");
+            check.checked = true;
             setTema('dark');
         }
     }, [sistemaClaro])
