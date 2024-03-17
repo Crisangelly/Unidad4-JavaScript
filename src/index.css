@@ -43,12 +43,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*[data-theme='dark'] {
-  --background: #434747;
-  --text-primary: #fff;
-}*/
-
-
 body {
   /*display: flex;
   place-items: center;*/
@@ -67,3 +61,7 @@ body {
   }
 }
 */
+
+[data-loading='true'] {
+  overflow: hidden;
+}

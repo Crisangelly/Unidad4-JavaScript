@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 import "./styles/App.css"
@@ -21,7 +21,7 @@ function App() {
     }, 1000)
   }
 
-
+  //Loader del main
   const [carga2, setCarga2] = useState(false);
   const iniciarCarga = () => {
     setCarga2(true);
@@ -34,6 +34,11 @@ function App() {
       setCarga2(false);
     }, 1000)
   }
+
+  //Desactivar scroll
+  useEffect(() => {
+    document.body.setAttribute('data-loading', carga2 ? 'true' : 'false');
+  }, [carga2]);
 
 
   return (
