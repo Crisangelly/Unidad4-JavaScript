@@ -53,7 +53,7 @@ function Buscador({ parador }) {
       //console.debug(RESPONSE2.data)
       if (RESPONSE2.data) { usuarios_3.push(RESPONSE2.data) };
     }
-    setCarga(false);
+    //setCarga(false);
     return setUsuarios(usuarios_3);
   }
 
@@ -67,24 +67,42 @@ function Buscador({ parador }) {
     }
   }, [debounceTexto])
 
+  //Detectar texto en el input
   const debounceResquets = (valorBusq) => {
     if (!valorBusq) return
     setBuscar(valorBusq);
     //console.info('escribiendo:', valorBusq);
   }
 
-  const hola = () => {
-    console.debug("hola. Ya cargué (usuarios)");
-    //setCarga(false);
+  //Para ocultar los usuarios mientras se están cargando
+  const [mostrar, setMostrar] = useState('flex');
+  const estiloUsers = {
+    display: mostrar,
+  };
+  useEffect(() => {
+    if (carga) {
+      setMostrar('none');
+      //console.info('Oculto');
+    } else {
+      setMostrar('flex');
+      //console.info('Mostrar');
+    }
+  }, [carga]);
+
+  const visible = () => {
+    if (carga) {
+      //console.debug("hola. Ya cargué (usuarios)");
+      setCarga(false);
+    }
   }
 
   return (
     <>
       <div className="buscadorContainer">
         <h1>Ingresa el nombre de usuario</h1>
-        <input type="text" id="input" placeholder="Buscar Users" onChange={(e) => debounceResquets(e.target.value)}></input>
+        <input type="text" id="input" placeholder="Buscar usuarios" onChange={(e) => debounceResquets(e.target.value)}></input>
         {carga && <Loading />}
-        <div className='usuariosContainer' onLoad={hola}>
+        <div className='usuariosContainer' style={estiloUsers} onLoad={visible}>
           {
             usuarios.map(usuario => (
               <Coincidencia
