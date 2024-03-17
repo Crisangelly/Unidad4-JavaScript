@@ -6,7 +6,7 @@ import OctocatLogo from "../assets/logo.png"
 function LandingPage({ cargador, parador }) {
   useEffect(function () {
     parador()//Detener Loading
-  })
+  }, [])
   return (
     <>
       <main className="landingPage-main">
