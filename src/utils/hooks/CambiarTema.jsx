@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react"
+import React from "react";
+import { LuSun } from "react-icons/lu"
+import {  FiMoon } from "react-icons/fi";
+import "../../styles/checkbox.css"
 
 function CambiarTema() {
     const verTOS = () => {//Para establecer el tema del sistema al cargar la página
@@ -45,56 +49,18 @@ function CambiarTema() {
         document.body.setAttribute('data-theme', tema);
     }, [tema]);
 
-    /*
-    const sistemaOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    useEffect(() => {
-        if (sistemaOscuro) {
-            setTema('dark');
-        }
-    }, [sistemaOscuro])
-    
-    function verTOS() {
-        const temaUser = window.matchMedia('(prefers-color-scheme: dark)');
-        //console.log(temaUser)
-        //console.log(temaUser.matches);
-        if (temaUser.matches) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    setInterval(() => {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTema('dark');
-        } else {
-            setTema('light');
-        }
-    }, 2000)
-
-    const sistemaClaro = window.matchMedia('(prefers-color-scheme: light)').matches;
-    useEffect(() => {
-        if (sistemaClaro) {
-            setTema('light');
-        } else {
-            let check = document.getElementById("checkTheme");
-            check.checked = true;
-            setTema('dark');
-        }
-    }, [sistemaClaro])
-    */
-    /*const cambiarTema = async () => {
-        setTema(!tema);
-    }
-    <button onClick={cambiarTema}>{tema}</button>*/
     return (
         <>
 
             <div className="container-switch">
-                <span>Cambiar tema </span>
-                <label className="switch">
+                <label className="switch" htmlFor="checkTheme">
                     <input id="checkTheme" type="checkbox" onChange={suicheChange} />
-                    <span className="slider"></span>
+                    <span className="slider">
+                        <span className="span-radius">
+                            <LuSun className="ico-light" />
+                            <FiMoon className="ico-dark" />
+                        </span>  
+                    </span>
                 </label>
             </div>
         </>
