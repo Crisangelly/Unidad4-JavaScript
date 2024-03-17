@@ -19,10 +19,10 @@ function Loading ({loader_tipo}) {
       console.log("Terminó rápido verdad?");
     }, 5000);
   })    */
-  
+  /*
   let ruta = window.location.pathname //Se ve la ruta, hay que ver cuando cambia
   console.log(ruta)
-
+*/
 
 
   return(

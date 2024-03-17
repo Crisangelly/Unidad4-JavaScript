@@ -6,7 +6,7 @@ import OctocatLogo from "../assets/logo.png"
 import { useState } from "react"
 import Loading from "../components/Loading"
 */
-function LandingPage() {
+function LandingPage({cargador}) {
   //const [carga, setCarga] = useState(false) 
 /*
   const preparar_carga = () =>{
@@ -24,7 +24,7 @@ function LandingPage() {
           < h1 className="info-h1">¡Bienvenido!</h1>
           </div>
           <p className="info-p">Busca los usuarios que desees fácil y rápido</p>
-          <Link to="/buscador" className="link-landingPage" /*onClick={preparar_carga}*/>Comienza Ahora</Link> {/*El problema empieza aquí */}
+          <Link to="/buscador" className="link-landingPage" onClick={cargador}>Comienza Ahora</Link> {/*El problema empieza aquí */}
         </div>
         <div className="octocat-div">
           <h1 className="info-h11">¡Bienvenido!</h1>
