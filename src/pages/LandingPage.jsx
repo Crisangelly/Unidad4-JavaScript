@@ -2,26 +2,29 @@ import { Link } from "react-router-dom"
 import "../styles/landingPage.css"
 import OctocatLogo from "../assets/logo.png"
 
-/*
-import { useState } from "react"
-import Loading from "../components/Loading"
+
+import { useEffect } from "react"
+/*import Loading from "../components/Loading"
 */
-function LandingPage({cargador}) {
+function LandingPage({ cargador, parador }) {
+  useEffect(function () {
+    parador()//Detener Loading
+  })
   //const [carga, setCarga] = useState(false) 
-/*
-  const preparar_carga = () =>{
-    setCarga(true)
-    setTimeout(()=>{
-      setCarga(false);
-    }, 5000)
-  }
-*/
+  /*
+    const preparar_carga = () =>{
+      setCarga(true)
+      setTimeout(()=>{
+        setCarga(false);
+      }, 5000)
+    }
+  */
   return (
     <>
       <main className="landingPage-main">
         <div className="info-div">
           <div className="conteiner-h1">{/*Cris*/}
-          < h1 className="info-h1">¡Bienvenido!</h1>
+            < h1 className="info-h1">¡Bienvenido!</h1>
           </div>
           <p className="info-p">Busca los usuarios que desees fácil y rápido</p>
           <Link to="/buscador" className="link-landingPage" onClick={cargador}>Comienza Ahora</Link> {/*El problema empieza aquí */}

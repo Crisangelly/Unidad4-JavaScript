@@ -10,6 +10,18 @@ import BuscadorPage from "./pages/BuscadorPage.jsx"
 import Loading from "./components/Loading"
 
 function App() {
+  //Loader
+  const [carga1, setCarga1] = useState(true);
+  setTimeout(() => {
+    setCarga1(false);
+  }, 10000)
+  const pararCargaUno = () => {
+    setTimeout(() => {
+      setCarga1(false);
+    }, 1000)
+  }
+
+
   const [carga2, setCarga2] = useState(false);
   const iniciarCarga = () => {
     setCarga2(true);
@@ -17,25 +29,26 @@ function App() {
       setCarga2(false);
     }, 10000)
   }
-
   const detenerCarga = () => {
     setTimeout(() => {
       setCarga2(false);
     }, 1000)
   }
-  
+
+
   return (
     <>
-    <Router>
-      <Header />
-      {carga2 && <Loading loader_tipo="loader-spinner-pantalla" />}
-      <Routes>
-        <Route path="/" element={<LandingPage cargador={iniciarCarga}/>}/>
-        <Route path="/buscador" element={<BuscadorPage cargando={carga2} parador={detenerCarga}/>}/>
-      </Routes>
-    </Router> 
+      <Router>
+        {carga1 && <Loading loader_tipo="loader-spinner-pantalla" />}
+        <Header parador={pararCargaUno} cargador={iniciarCarga} />
+        {carga2 && <Loading loader_tipo="loader-spinner-pantalla" />}
+        <Routes>
+          <Route path="/" element={<LandingPage parador={detenerCarga} cargador={iniciarCarga} />} />
+          <Route path="/buscador" element={<BuscadorPage parador={detenerCarga} />} />
+        </Routes>
+      </Router>
 
-    <Footer /> 
+      <Footer />
     </>
   )
 }
