@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 
-.a-footer, .p-footer{
+.a-footer, .address-footer{
   color: var(--text-primary, black);
   font-family: var(--font-primary, Poppins);
   font-size: var(--size-foot, 12px);
@@ -16,4 +16,5 @@
 
 .a-footer:hover{
   color: var(--primary-color, #52C01E);
+  cursor: pointer;
 }
