@@ -10,18 +10,37 @@ function Buscador({ parador }) {
     parador()//Detener Loading
   })
 
+
+  function active_debounce(textoBusq, retraso = 1000) {
+    const [debounceValor, setDebounceValor] = useState(textoBusq);
+
+    useEffect(() => {
+      const actTexto = setTimeout(() => {
+        console.log('Recibiendo', textoBusq)
+        setDebounceValor(textoBusq);
+      }, retraso);
+      return () => {
+        clearTimeout(actTexto);
+      };
+    }, [textoBusq, retraso]);//Recibir el texto del usuario y el tiempo de espera
+
+    return debounceValor;//Enviar el último valor
+  };
+
+
   const [buscar, setBuscar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [carga, setCarga] = useState(false)
+  const debounceValue = active_debounce(buscar);
 
   //Buscar usuarios
-  const fETCH_USERS = async () => {
+  const fETCH_USERS = async (valorB) => {
     const RESPONSE = await API_GITHUB
       .get("/search/users", {
         params: {
           per_page: 3, //limitar resultados a tres
           page: 1,
-          q: buscar
+          q: valorB
         }
       })
       .catch((error) => {
@@ -29,8 +48,8 @@ function Buscador({ parador }) {
         //console.debug(error)
         return { data: false };
       });
-    /*setCarga(true)
-    setUsuarios([])*/
+    /*setCarga(true)*/
+    setUsuarios([])
     const datosGet = RESPONSE.data;
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
@@ -61,6 +80,14 @@ function Buscador({ parador }) {
     return setUsuarios(usuarios_3);
   }
 
+  //useEffect(fETCH_USERS(debounceValue), [debounceValue])
+  useEffect(() => {
+    if (debounceValue) {
+      console.log('cambiando aqui', debounceValue)
+      fETCH_USERS(debounceValue)
+    }
+  }, [debounceValue])
+
   /* Loading */
   const empezarCarga = () => {
     setCarga(true);
@@ -81,21 +108,27 @@ function Buscador({ parador }) {
   }
 
 
-  
-  function active_debounce(callback, delay = 1000) {
-    let while_typing;
-    return (...args) => {
-      clearTimeout(while_typing);
-    while_typing = setTimeout(() => {
-      setBuscar(...args)
-      fETCH_USERS()
-        callback(...args);
-      }, delay);
+
+
+  /*
+    function active_debounce(callback, delay = 1000) {
+      let while_typing;
+      return (...args) => {
+        clearTimeout(while_typing);
+        while_typing = setTimeout(() => {
+          callback(...args, 'de active');
+        }, delay);
+      }
     }
+    */
+
+  const debounceResquets = (valorBusq) => {
+    if (!valorBusq) return
+    setBuscar(valorBusq)
+    setCarga(true);
+    //empezarCarga()
+    console.log('escribiendo:', valorBusq);
   }
-  let debounceResquets = active_debounce( ( value ) => {
-    console.log(value);
-  } , 225 )
 
   return (
     <>
