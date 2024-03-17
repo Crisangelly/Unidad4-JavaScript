@@ -10,10 +10,11 @@ function Header (){
   const [carga, setCarga] = useState(false) 
 
   const preparar_carga = () =>{
+    //console.debug('estoy cargando el header')
     setCarga(true)
     setTimeout(()=>{
       setCarga(false);
-    }, 5000)
+    }, 1500)
   }
 
   return(
