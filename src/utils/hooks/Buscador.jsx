@@ -5,7 +5,7 @@ import API_GITHUB from "../api/conexion_api.js"
 import Coincidencia from "../../components/Coincidencia.jsx"
 import Loading from "../../components/Loading.jsx";
 
-function Buscador({ parador }) {
+function Buscador({  parador  }) {
   useEffect(function () {
     parador()//Detener Loading
   })
@@ -13,17 +13,24 @@ function Buscador({ parador }) {
   const [buscar, setBuscar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [carga, setCarga] = useState(false)
+  const [carga, setCarga] = useState(false)
 
   //Buscar usuarios
   const fETCH_USERS = async () => {
     const RESPONSE = await API_GITHUB
+      
       .get("/search/users", {
-        params: {
-          per_page: 3, //limitar resultados a tres
-          page: 1,
-          q: buscar
-        }
+          params: {
+            per_page: 3, //limitar resultados a tres
+            page: 1,
+            q: buscar
+          }
       })
+      .catch((error) => {
+        console.error('Error al realizar la búsqueda:', error.message);
+        //console.debug(error)
+        return { data: false };
+        })
       .catch((error) => {
         console.error('Error al realizar la búsqueda:', error.message);
         //console.debug(error)
@@ -31,6 +38,17 @@ function Buscador({ parador }) {
       });
     /*setCarga(true)
     setUsuarios([])*/
+    const datosGet = RESPONSE.data;
+    console.debug("Respuesta:", datosGet);
+    if (!datosGet) {
+      alert('Ha ocurrido un error al realizar la búsqueda.')
+      return setCarga(false)
+    };
+    if (datosGet.total_count == 0) {
+      alert('No se han encontrado coincidencias.');
+      setCarga(false);
+      return
+    }
     const datosGet = RESPONSE.data;
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
@@ -56,6 +74,19 @@ function Buscador({ parador }) {
       //console.debug(RESPONSE2.data)
       if (RESPONSE2.data) { usuarios_3.push(RESPONSE2.data) };
       //c++
+    //let c = 1;
+    for (const user of datosGet.items) {
+      /*console.log(c)
+      if (c == 1) { user.login = 'hsjahshakdh' }*/
+      const RESPONSE2 = await API_GITHUB.get(`/users/${user.login}`)
+        .catch((error) => {
+          console.error('Usuario:', user.login, 'Error:', error.message);
+          //console.debug(error);
+          return { data: false }
+        });
+      //console.debug(RESPONSE2.data)
+      if (RESPONSE2.data) { usuarios_3.push(RESPONSE2.data) };
+      //c++
     }
     setCarga(false);
     return setUsuarios(usuarios_3);
@@ -63,7 +94,9 @@ function Buscador({ parador }) {
 
   /* Loading */
   const empezarCarga = () => {
+  const empezarCarga = () => {
     setCarga(true);
+    setUsuarios([]);
     setUsuarios([]);
     setTimeout(() => {
       fETCH_USERS();
@@ -102,6 +135,8 @@ function Buscador({ parador }) {
         <h1>Ingresa el nombre de usuario</h1>
         <input type="text" id="input" placeholder="Buscar Users" onChange={(e) => debounceResquets(e.target.value)}></input>
         <button onClick={empezarCarga}>Buscar</button>
+        {carga && <Loading />}
+        <div className='usuariosContainer' onLoad={hola}>
         {carga && <Loading />}
         <div className='usuariosContainer' onLoad={hola}>
           {
