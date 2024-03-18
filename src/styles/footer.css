@@ -18,3 +18,23 @@
   color: var(--primary-color, #52C01E);
   cursor: pointer;
 }
+
+
+@media (max-width: 1024px){ /*Tablet*/
+  .a-footer, .address-footer{
+    font-size: 22px; 
+  }
+}
+
+@media (max-width: 500px){ /*Tablet*/
+  .a-footer, .address-footer{
+    font-size: 15px;
+  }
+}
+
+
+@media (max-height: 800px){ /*Tablet*/
+  .a-footer, .address-footer{
+    font-size: 15px;
+  }
+}
