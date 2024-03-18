@@ -14,7 +14,7 @@ function Buscador({ parador }) {
   const [usuarios, setUsuarios] = useState([]);
   const [carga, setCarga] = useState(false)
 
-  const debounceTexto = active_debounce(buscar);
+  const debounceTexto = active_debounce(buscar, 650);
 
   //Buscar usuarios
   const fETCH_USERS = async (valorB) => {
@@ -27,15 +27,18 @@ function Buscador({ parador }) {
         }
       })
       .catch((error) => {
-        console.error('Error al realizar la búsqueda:', error.message);
+        //console.error('Error al realizar la búsqueda:', error.message);
         //console.debug(error)
+        console.error(`Error al realizar la búsqueda. Código: ${error.response.status}. Límite de tarifa restante: ${error.response.headers["x-ratelimit-remaining"]}. Mensaje: ${error.response.data.message}`)
         return { data: false };
       });
+    console.info(`Success! Status: ${RESPONSE.status}. Rate limit remaining: ${RESPONSE.headers["x-ratelimit-remaining"]}`)
     const datosGet = RESPONSE.data;
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
       alert('Ha ocurrido un error al realizar la búsqueda.')
-      return setCarga(false)
+      setCarga(false)
+      return
     };
     if (datosGet.total_count == 0) {
       alert('No se han encontrado coincidencias.');
@@ -43,17 +46,19 @@ function Buscador({ parador }) {
       return
     }
     let usuarios_3 = [];
+    let cError = 0;
     for (const user of datosGet.items) {
       const RESPONSE2 = await API_GITHUB.get(`/users/${user.login}`)
         .catch((error) => {
-          console.error('Usuario:', user.login, 'Error:', error.message);
+          console.warn('Usuario:', user.login, 'Error:', error.message);
+          cError++
           //console.debug(error);
           return { data: false }
         });
       //console.debug(RESPONSE2.data)
       if (RESPONSE2.data) { usuarios_3.push(RESPONSE2.data) };
     }
-    //setCarga(false);
+    if (cError === 3) setCarga(false);
     return setUsuarios(usuarios_3);
   }
 
