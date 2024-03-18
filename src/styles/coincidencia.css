@@ -63,3 +63,23 @@
   outline: 1px solid #f3baba;
 
 }
+
+
+@media (max-width: 540px){ /*Mobile*/
+  .buscadorContainer input{
+    width: 305px;
+    height: 62px;
+    font-size: 15px;
+  }
+
+  .buscadorContainer h1{
+    font-size: 18px;
+  }
+  
+  .usuarioCard {
+    min-width: 289px;
+    max-width: 210px;
+
+  }
+  
+}
