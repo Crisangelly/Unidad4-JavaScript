@@ -60,18 +60,19 @@ function Buscador({ parador }) {
   /* Loading */
   useEffect(() => {
     setUsuarios([]);
-    if (debounceTexto && debounceTexto != '' && debounceTexto != ' ') {//Evitar buscar si está vacío
-      if (debounceTexto == ' ') console.log('Espacio')
-      console.debug('Actualizando texto:', debounceTexto);
+    let textoBusq = debounceTexto.trim()//Evitar buscar si está vacío
+    if (textoBusq.length > 39) return alert('La consulta supera el límite de caracteres');
+    if (textoBusq) {
+      console.debug('Actualizando texto:', textoBusq);
       setCarga(true);
-      fETCH_USERS(debounceTexto)
+      fETCH_USERS(textoBusq)
     }
   }, [debounceTexto])
 
   //Detectar texto en el input
   const debounceResquets = (valorBusq) => {
     setBuscar(valorBusq);
-    console.info('escribiendo:', valorBusq);
+    //console.info('escribiendo:', valorBusq);
   }
 
   //Para ocultar los usuarios mientras se están cargando
