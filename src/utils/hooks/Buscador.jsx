@@ -112,6 +112,7 @@ function Buscador({ parador }) {
                 login={usuario.login}
                 company={usuario.company}
                 public_repos={usuario.public_repos}
+                enlace_github={usuario.html_url}
               />
             ))
           }
