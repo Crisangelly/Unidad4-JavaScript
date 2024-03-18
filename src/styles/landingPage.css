@@ -7,11 +7,11 @@
 }
 
 .link-landingPage{
+  margin-top: 8px;
   text-decoration: none;
-  background-color: var(--primary-color, #52C01E);
-  padding: 31px 36px;
-  border-radius: 20px;
-  border: 8px solid var(--border-color, #fff);
+  background-color: var(--primary-color,  #01A020);
+  padding: 25px 36px;
+  border-radius: 50px;
   font-family: Poppins;
   font-size: 40px;
   font-weight: 800;
@@ -20,7 +20,7 @@
 }
 
 .link-landingPage:hover{
-  background-color: #76FC37;
+  background-color: #02BA26;
 }
 
 .conteiner-h1{
