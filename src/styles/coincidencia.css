@@ -29,3 +29,37 @@
   width: 124px;
   height: 124px;
 }
+
+.buscadorContainer{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buscadorContainer h1{
+  margin-bottom: 10px;
+}
+
+.buscadorContainer input{
+  width: 550px;
+  height: 62px;
+  border: none;
+  background-color:#D9D9D9;
+  color: #000;
+  text-align: center;
+  transition: all .2s;
+  font-size: 20px;
+}
+
+.buscadorContainer input:hover{
+  background-color:#ecdede;
+  color: #000;
+  text-align: center;
+}
+
+.buscadorContainer input:active{
+  background-color:#ecdede;
+  color: #000;
+  text-align: center;
+  outline: 1px solid #f3baba;
+
+}
