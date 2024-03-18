@@ -1,7 +1,14 @@
 .footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-info{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
+  justify-content: center;
 }
 
 .a-footer{
@@ -19,22 +26,23 @@
   cursor: pointer;
 }
 
-
-@media (max-width: 1024px){ /*Tablet*/
+/* 
+@media (max-width: 1024px){ /*Tablet
   .a-footer, .address-footer{
     font-size: 22px; 
   }
 }
 
-@media (max-width: 500px){ /*Tablet*/
+@media (max-width: 500px){ /*Tablet
   .a-footer, .address-footer{
     font-size: 15px;
   }
 }
 
 
-@media (max-height: 800px){ /*Tablet*/
+@media (max-height: 800px){ /*Tablet
   .a-footer, .address-footer{
     font-size: 15px;
   }
 }
+ */

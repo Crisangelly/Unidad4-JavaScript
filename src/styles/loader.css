@@ -37,6 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 50;
 }
 
 .loader-spinner-pantalla::after{
