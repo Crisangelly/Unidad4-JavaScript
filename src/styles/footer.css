@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  height: 50px;
+  height: 60px;
 }
 
 .a-footer{
@@ -31,6 +31,12 @@
 @media (max-width: 540px){ /*Mobile */
   .a-footer, .address-footer{
     font-size: 15px; 
+  }
+}
+
+@media (max-width: 375px){ /*Mobile */
+  .a-footer, .address-footer{
+    font-size: 13px; 
   }
 }
 

@@ -62,6 +62,7 @@
 @media (max-width: 912px) {   /* Tablet */
   .landingPage-main{
     flex-direction: column;
+    flex-wrap: wrap-reverse;
   }
   .octocat-div{
     flex-direction: row;

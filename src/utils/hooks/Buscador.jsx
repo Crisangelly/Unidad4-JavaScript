@@ -12,7 +12,9 @@ function Buscador({ parador }) {
 
   const [buscar, setBuscar] = useState("");
   const [usuarios, setUsuarios] = useState([]);
-  const [carga, setCarga] = useState(false)
+  const [carga, setCarga] = useState(false);
+  const [alerta, setAlerta] = useState(false)
+  const [mensaje, setMensaje] = useState("");
 
   const debounceTexto = active_debounce(buscar, 650);
 
@@ -36,12 +38,14 @@ function Buscador({ parador }) {
     const datosGet = RESPONSE.data;
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
-      alert('Ha ocurrido un error al realizar la búsqueda.')
+      setMensaje('Ha ocurrido un error al realizar la búsqueda.')
+      setAlerta(true)
       setCarga(false)
       return
     };
     if (datosGet.total_count == 0) {
-      alert('No se han encontrado coincidencias.');
+      setMensaje('No se han encontrado coincidencias.')
+      setAlerta(true)
       setCarga(false);
       return
     }
@@ -66,8 +70,12 @@ function Buscador({ parador }) {
   useEffect(() => {
     setUsuarios([]);
     let textoBusq = debounceTexto.trim()//Evitar buscar si está vacío
-    if (textoBusq.length > 39) return alert('La consulta supera el límite de caracteres');
-    if (textoBusq) {
+    if (textoBusq.length > 39) {
+      console.log("La conrulta supera el límite.")
+      setMensaje('La consulta supera el límite de caracteres')
+      setAlerta(true) 
+    }else if (textoBusq) {
+      setAlerta(false)
       console.debug('Actualizando texto:', textoBusq);
       setCarga(true);
       fETCH_USERS(textoBusq)
@@ -108,6 +116,7 @@ function Buscador({ parador }) {
         <h1>Ingresa el nombre de usuario</h1>
         <input type="text" id="input" placeholder="Buscar usuarios" onChange={(e) => debounceResquets(e.target.value)}></input>
         {carga && <Loading />}
+        {alerta && <h2 className="buscador-mensaje">{mensaje}</h2>}
         <div className='usuariosContainer' style={estiloUsers} onLoad={visible}>
           {
             usuarios.map(usuario => (
