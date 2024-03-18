@@ -77,6 +77,10 @@
 
 
 @media (max-width: 540px){ /*Mobile*/
+  .usuariosContainer {
+    padding-bottom: 60px;
+  }
+  
   .buscadorContainer input{
     width: 305px;
     height: 62px;

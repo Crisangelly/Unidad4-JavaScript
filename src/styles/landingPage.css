@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   height: 80vh;
+  padding: 0;
 }
 
 .octocat-img{
@@ -16,17 +17,17 @@
   margin-top: 8px;
   text-decoration: none;
   background-color: var(--primary-color,  #01A020);
-  padding: 25px 36px;
+  padding: 15px 25px;
   border-radius: 50px;
   font-family: Poppins;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 800;
   color: var(--text-secundary, #fff);
   text-align: center;
 }
 
 .link-landingPage:hover{
-  background-color: #02BA26;
+  background-color: var(--hover-color,  #02BA26);
 }
 
 .conteiner-h1{
@@ -58,10 +59,39 @@
   display: none;
 }
 
-/* 
-@media (max-width: 540px){ /*Mobile
+@media (max-width: 912px) {   /* Tablet */
   .landingPage-main{
-    overflow: hidden;
+    flex-direction: column;
+  }
+  .octocat-div{
+    flex-direction: row;
+    order: -1;
+  }
+  .octocat-img{
+    width: 400px;
+    margin-top: 30px ;
+  }
+  .link-landingPage:active{
+    background-color: var(--hover-color,  #02BA26);
+  }
+  .conteiner-h1{/*Cris*/
+    text-align: center;
+    margin-left:36em;
+  }
+  .info-h1{
+    display: none;
+  }
+  .info-h11{
+    display: flex;
+    text-align: center;
+    flex: 1;
+    justify-content: center;
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 540px) {   /* Mobile */
+  .landingPage-main{
     padding: 0;
   }
   .octocat-img{
@@ -80,7 +110,7 @@
     font-size: 20px;
   }
   .link-landingPage:active{
-    background-color: #76FC37;
+    background-color: var(--hover-color,  #02BA26);
   }  
   .info-h11{
     display: flex;
@@ -89,54 +119,4 @@
     justify-content: center;
     font-size: 38px;
   }
-  
 }
-
-
-@media (max-width: 1024px){ /*Tablet
-  .landingPage-main{
-    flex-direction: column;
-    overflow: hidden;
-    height: 100%; 
-    padding: 0; 
-   /* margin: 10vh 0; 
-   margin: 20% 0;
-  }
-  .octocat-div{
-    flex-direction: row;
-    order: -1;
-  }
-  .octocat-img{
-    width: 400px;
-    margin-top: 30px ;
-  }
-  .link-landingPage:active{
-    background-color: #76FC37;
-  }
-  .conteiner-h1{/*Cris
-    text-align: center;
-    margin-left:36em;
-  }
-  .info-h1{
-    display: none;
-  }
-  .info-h11{
-    display: flex;
-    text-align: center;
-    flex: 1;
-    justify-content: center;
-    font-size: 38px;
-  }
-}
-
-
-@media (max-height: 600px){ /*pantalla con alto pequeño
-  .landingPage-main{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    padding: 0;
-    height: 85vh;
-    margin: 10px;
-  }
-} */
