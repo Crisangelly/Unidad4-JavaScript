@@ -5,6 +5,7 @@
   align-items: center;
   height: 80vh;
   padding: 0;
+  margin: 0 70px;
 }
 
 .octocat-img{
@@ -63,6 +64,7 @@
   .landingPage-main{
     flex-direction: column;
     flex-wrap: wrap-reverse;
+    margin: 0;
   }
   .octocat-div{
     flex-direction: row;

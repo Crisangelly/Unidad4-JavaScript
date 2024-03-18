@@ -71,7 +71,6 @@ function Buscador({ parador }) {
     setUsuarios([]);
     let textoBusq = debounceTexto.trim()//Evitar buscar si está vacío
     if (textoBusq.length > 39) {
-      console.log("La conrulta supera el límite.")
       setMensaje('La consulta supera el límite de caracteres')
       setAlerta(true) 
     }else if (textoBusq) {
