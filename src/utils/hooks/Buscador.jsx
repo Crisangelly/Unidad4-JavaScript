@@ -61,6 +61,7 @@ function Buscador({ parador }) {
   useEffect(() => {
     setUsuarios([]);
     let textoBusq = debounceTexto.trim()//Evitar buscar si está vacío
+    if (textoBusq.length > 39) return alert('La consulta supera el límite de caracteres');
     if (textoBusq) {
       console.debug('Actualizando texto:', textoBusq);
       setCarga(true);
