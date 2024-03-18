@@ -59,9 +59,10 @@ function Buscador({ parador }) {
 
   /* Loading */
   useEffect(() => {
-    if (debounceTexto) {//Evitar buscar si está vacío
+    setUsuarios([]);
+    if (debounceTexto && debounceTexto != '' && debounceTexto != ' ') {//Evitar buscar si está vacío
+      if (debounceTexto == ' ') console.log('Espacio')
       console.debug('Actualizando texto:', debounceTexto);
-      setUsuarios([]);
       setCarga(true);
       fETCH_USERS(debounceTexto)
     }
@@ -69,9 +70,8 @@ function Buscador({ parador }) {
 
   //Detectar texto en el input
   const debounceResquets = (valorBusq) => {
-    if (!valorBusq) return
     setBuscar(valorBusq);
-    //console.info('escribiendo:', valorBusq);
+    console.info('escribiendo:', valorBusq);
   }
 
   //Para ocultar los usuarios mientras se están cargando
