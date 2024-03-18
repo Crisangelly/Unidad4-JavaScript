@@ -1,11 +1,11 @@
 import axios from "axios";
-import dotenv from "dotenv"
 
-const URL_BASE = "https://api.github.com/";
+const URL_BASE = import.meta.env.VITE_URL_API;
+const TOKEN = import.meta.env.VITE_SECRET;
 
 const API_GITHUB = axios.create({
   baseURL: URL_BASE,
-  headers: {'Authorization': dotenv.SECRET},
+  headers: {'Authorization': TOKEN},
   timeout: 60000,
 });
 
