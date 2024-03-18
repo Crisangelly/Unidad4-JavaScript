@@ -6,8 +6,8 @@ function Coincidencia ({ avatar_url, name, login, company, public_repos, enlace_
     <div className="usuarioCard">
       <img className="imagenCard" src={avatar_url}></img>
       <ul>
+        <li className="username"><strong>{login}</strong></li>
         <li>Nombre: {name}</li>
-        <li>Nombre de usuario: {login}</li>
         {company && <li>Empresa: {company}</li>}
         <li>Repositorios públicos: {public_repos}</li>
         <li><a href={enlace_github} target="_blank">Visitar Github</a></li>
