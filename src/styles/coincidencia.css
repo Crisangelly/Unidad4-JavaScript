@@ -15,7 +15,8 @@
   color-scheme: only light;
   color: black;
   background: var(--card-color, #D9D9D9);
-  min-height: 230px;
+  /*min-height: 230px;*/
+  height: 265px;
   display: flex;
   min-width: 289px;
   max-width: 385px;
