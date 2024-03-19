@@ -27,7 +27,10 @@ Para instalar y probar este proyecto, tenga en cuenta lo siguiente:
 *	Un navegador web
 *	Node.js con npm
 *	Conexión a internet (para acceder al servido de la API REST)
-* Archivo .env con los secretos para conectarse a la API
+* Archivo .env con los secretos para conectarse a la API. 
+  La estrutura del .env es la siguiente:
+  VITE_URL_API= url_api 
+  VITE_SECRET= token
 
 ### Instalación
 
@@ -72,7 +75,7 @@ e ir a la ruta con el puerto asignado para ver la página, esta ruta se puede ve
 
 * [Figma](https://www.figma.com/file/wc2IHYJbS9nWfw3E7FGDcE/Buscador?type=design&node-id=0-1&mode=design&t=1Xe9Gl4nyiUSVXJB-0) - Para el prototipado web
 * [Node.js](https://nodejs.org/en) - Dependencias
-* [API](https://docs.github.com/es/rest) - Api de consultas del buscador
+* [API REST para GitHub](https://docs.github.com/es/rest) - Api de consultas del buscador
 * [Vite](https://vitejs.dev/) - Usado para crear componentes y empaquetar
 
 
