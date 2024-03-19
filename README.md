@@ -27,7 +27,7 @@ Para instalar y probar este proyecto, tenga en cuenta lo siguiente:
 *	Un navegador web
 *	Node.js con npm
 *	Conexión a internet (para acceder al servido de la API REST)
-* ARchivo .env con los secretos para conectarse a la API
+* Archivo .env con los secretos para conectarse a la API
 
 ### Instalación
 
@@ -35,7 +35,6 @@ Una vez descargada y descomprimida la carpeta del repositorio, o tenerlo clonado
 
 ```
 npm install
-
 ```
 
 Luego se puede ejecutar como desarrollo o producción
@@ -46,7 +45,6 @@ ejecutar la aplicación con el comando:
 
 ```
 npm run dev
-
 ```
 
 e ir a la ruta con el puerto asignado para ver la página, esta ruta se puede ver por consola
@@ -58,14 +56,12 @@ crear la carpeta dist con el comando:
 
 ```
 npm run build
-
 ```
 
 ejecutar la aplicación en la carpeta dist con el comando:
 
 ```
 npm run preview
-
 ```
 
 e ir a la ruta con el puerto asignado para ver la página, esta ruta se puede ver por consola
