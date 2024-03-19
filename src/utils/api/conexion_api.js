@@ -9,11 +9,5 @@ const API_GITHUB = axios.create({
   timeout: 60000,
 });
 
-/*
-const token = TOKEN;
-if (token) {
-  github.defaults.headers.common.Authorization = `token ${token}`;
-}
-*/
 
 export default API_GITHUB;
