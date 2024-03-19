@@ -39,13 +39,13 @@ function Buscador({ parador }) {
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
       setMensaje('Ha ocurrido un error al realizar la búsqueda.')
-      setAlerta(true)
-      setCarga(false)
+      setAlerta(true);
+      setCarga(false);
       return
     };
     if (datosGet.total_count == 0) {
       setMensaje('No se han encontrado coincidencias.')
-      setAlerta(true)
+      setAlerta(true);
       setCarga(false);
       return
     }
@@ -69,12 +69,12 @@ function Buscador({ parador }) {
   /* Loading */
   useEffect(() => {
     setUsuarios([]);
+    setAlerta(false);
     let textoBusq = debounceTexto.trim()//Evitar buscar si está vacío
     if (textoBusq.length > 39) {
-      setMensaje('La consulta supera el límite de caracteres')
-      setAlerta(true) 
+      setMensaje('La consulta supera el límite de caracteres');
+      setAlerta(true);
     }else if (textoBusq) {
-      setAlerta(false)
       console.debug('Actualizando texto:', textoBusq);
       setCarga(true);
       fETCH_USERS(textoBusq)
