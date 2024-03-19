@@ -84,7 +84,7 @@ e ir a la ruta con el puerto asignado para ver la página, esta ruta se puede ve
 * **José Simón García Castellanos** - *(C.I: 30.786.086)* - [DarthNeo03](https://github.com/DarthNeo03)
 * **Moisés Alfonso Terán Rivas** - *(C.I: 30.601.063)* - [teranMoises](https://github.com/teranMoises)
 * **Paola Valentina Marcano Salas** - *(C.I: 30.975.611)* - [PaolaMarcano](https://github.com/PaolaMarcano)
-* **Crisangelly Del Valle Hernández Fernández** - *(C.I: 30.954.251)* - [PaolaMarcano](https://github.com/PaolaMarcano)
+* **Crisangelly Del Valle Hernández Fernández** - *(C.I: 30.954.251)* - [Crisangelly](https://github.com/Crisangelly)
 
 ## Desarrollado para:
 
