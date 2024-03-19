@@ -27,3 +27,43 @@ Dentro de ellas están: express, express-generator, cors, vite, webpack y nodemo
 3- Inicia el proyecto con el siguiente comando:
 
   npm run dev
+
+  también puedes iniciarlo en el modo producción con:
+
+  npm run build  
+
+  y verlo con:
+
+  npm run preview 
+  
+----------------------------------------------Descripción del Proyecto--------------------------------------
+
+La alicación es un buscador de usuarios que consume la api de github:
+
+  https://docs.github.com/es/rest
+  
+Al buscar por nombre de usuario, devuelve la consulta que coincide con el parámetro a buscar o los 3 que más se 
+le acerquen, mostrando los siguientes datos de los usuarios:
+
+  -foto del usuario.
+  -su nombre de usuario en GitHub. 
+	-su nombre 
+  -la empresa en la que trabaja (si la tiene).
+	-cantidad de repositorios públicos que ha creado.
+  -enlace hacia la cuenta del usuario de gitHub.
+
+Además cuenta con la opción para cambiar el modo oscuro/claro y por defecto toma la configuración de la computadora. 
+Una pantalla de carga con un loader tipo spinner.
+Uso de debounce en la funcionalidad del buscador.
+Interfaz responsive.
+
+
+--------------------------------------------Dependencias utilizadas---------------------------------------
+
+-Api REST de GitHub
+-React
+-Javascript
+-HTML y CSS
+-Axios (para la conexión a la api)
+-React-icons (para los íconos del botón de tema claro y oscuro)
+-React-router-dom (para las rutas de la página)
