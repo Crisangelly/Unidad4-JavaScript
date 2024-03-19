@@ -34,7 +34,7 @@ function Buscador({ parador }) {
         console.error(`Error al realizar la búsqueda. Código: ${error.response.status}. Límite de tarifa restante: ${error.response.headers["x-ratelimit-remaining"]}. Mensaje: ${error.response.data.message}`)
         return { data: false };
       });
-    console.info(`Success! Status: ${RESPONSE.status}. Rate limit remaining: ${RESPONSE.headers["x-ratelimit-remaining"]}`)
+    //console.info(`Búsqueda. Código: ${RESPONSE.status}. Límite de tarifa restante: ${RESPONSE.headers["x-ratelimit-remaining"]}`)
     const datosGet = RESPONSE.data;
     console.debug("Respuesta:", datosGet);
     if (!datosGet) {
@@ -82,7 +82,7 @@ function Buscador({ parador }) {
   }, [debounceTexto])
 
   //Detectar texto en el input
-  const debounceResquets = (valorBusq) => {
+  const debounceRes = (valorBusq) => {
     setBuscar(valorBusq);
     //console.info('escribiendo:', valorBusq);
   }
@@ -113,7 +113,7 @@ function Buscador({ parador }) {
     <>
       <div className="buscadorContainer">
         <h1>Ingresa el nombre de usuario</h1>
-        <input type="text" id="input" placeholder="Buscar usuarios" onChange={(e) => debounceResquets(e.target.value)}></input>
+        <input type="text" id="input" placeholder="Buscar usuarios" onChange={(e) => debounceRes(e.target.value)}></input>
         {carga && <Loading />}
         {alerta && <h2 className="buscador-mensaje">{mensaje}</h2>}
         <div className='usuariosContainer' style={estiloUsers} onLoad={visible}>
